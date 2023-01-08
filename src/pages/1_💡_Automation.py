@@ -11,7 +11,7 @@ def load_automation():
     r = redis.Redis(**st.secrets.db_credentials)
 
     # Add a title to the app
-    st.title("Light and Heating Control")
+    st.title("Smart Control")
 
     # Add a header and description
     st.header("Control your lights, ventilation and heating from anywhere!")
