@@ -1,14 +1,11 @@
 #!/usr/bin/env python3
 import redis
 import streamlit as st
-from streamlit_autorefresh import st_autorefresh
 
 
 def load_automation():
     st.set_page_config(page_title="Automation", page_icon="💡")
     st.sidebar.header("Automation")
-
-    st_autorefresh(interval=10000, key="dataframerefresh")
 
     # Connect to Redis server
     r = redis.Redis(**st.secrets.db_credentials)
@@ -25,15 +22,15 @@ def load_automation():
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        _load_automation("Living room", r)
+        _load_columns("Living room", r)
     with col2:
-        _load_automation("Bedroom", r)
+        _load_columns("Bedroom", r)
     with col3:
-        _load_automation("Bathroom", r)
+        _load_columns("Bathroom", r)
 
 
 # crate columns contents
-def _load_automation(room, r):
+def _load_columns(room, r):
     st.header(room)
 
     st.subheader("Temperature")
@@ -51,7 +48,7 @@ def _load_automation(room, r):
     ventilation = st.radio(
         label="Set the level",
         options=("1", "2", "3"),
-        index=_get_values(room, "ventilation", r)-1,
+        index=_get_values(room, "ventilation", r) - 1,
         horizontal=True,
         key=room + "ventilation",
     )
@@ -69,15 +66,20 @@ def _load_automation(room, r):
     if brightness > 0:
         # Add a button for turning the selected lights off
         if st.button(label="off", key=room + "off"):
-            brightness = 0
-    # Add a button for turning the selected lights on
+            brightness = _save_vale_refresh(0, room, r)
     elif st.button(label="on", key=room + "on"):
-        brightness = 100
-
+        brightness = _save_vale_refresh(100, room, r)
     # Save the values
     _save_values(room, "temperature", temperature, r)
     _save_values(room, "ventilation", ventilation, r)
     _save_values(room, "light", brightness, r)
+
+
+# refresh hack
+def _save_vale_refresh(value, room, r):
+    _save_values(room, "light", value, r)
+    st.experimental_rerun()
+    return value
 
 
 def _get_values(room, type, r):
