@@ -8,7 +8,7 @@ def load_automation():
     st.set_page_config(page_title="Automation", page_icon="💡")
     st.sidebar.header("Automation")
 
-    st_autorefresh(interval=2000, key="dataframerefresh")
+    st_autorefresh(interval=10000, key="dataframerefresh")
 
     # Connect to Redis server
     r = redis.Redis(**st.secrets.db_credentials)
