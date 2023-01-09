@@ -4,16 +4,16 @@ Hi! this is my first Streamlit app.
 
 # Used tools
 
-- GitKraken
-- venv
-- pre-commit
-- pyupgrade
-- black
-- flake8
-- bandit
-- isort
-- yamllint
-- prettier
+- GitKraken (Git GUI )
+- venv (virtual environments)
+- pre-commit (hooks)
+- pyupgrade (syntax upgrade )
+- black (formatter)
+- flake8 (linter)
+- bandit (security testing)
+- isort (library sort tool)
+- yamllint (yaml linter)
+- prettier (formatter)
 
 # Requirements
 
