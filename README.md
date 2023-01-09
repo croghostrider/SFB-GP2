@@ -4,6 +4,7 @@ Hi! this is my first Streamlit app.
 
 # Used tools
 
+- GitKraken
 - pyupgrade
 - black
 - flake8
