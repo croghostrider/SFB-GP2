@@ -4,13 +4,13 @@ Hi! this is my first Streamlit app.
 
 # Used tools
 
--pyupgrade
--black
--flake8
--bandit
--isort
--yamllint
--prettier
+- pyupgrade
+- black
+- flake8
+- bandit
+- isort
+- yamllint
+- prettier
 
 # Requirements
 
