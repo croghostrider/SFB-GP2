@@ -23,10 +23,11 @@ def load_weather():
     with col2:
         # Use a date picker to allow the user to select a specific date
         selected_date = st.date_input(
-            "",
+            label="calendar",
             value=df["Date Time"].min(),
             max_value=df["Date Time"].max(),
             min_value=df["Date Time"].min(),
+            label_visibility=False,
         )
 
     # Filter the dataframe to only show data for the selected date
