@@ -2,4 +2,3 @@ pip>=21.0,<22.1
 streamlit==1.16.0
 pandas==1.5.2
 redis==4.4.0
-streamlit-autorefresh==0.0.1

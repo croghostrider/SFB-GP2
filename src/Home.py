@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+from pathlib import Path
+
 import streamlit as st
 
 
@@ -11,13 +13,13 @@ def main():
     # Create the sidebar
     st.sidebar.success("Select a page above.")
 
-    st.markdown(
-        """
-        # Semester work SFB-GP2
+    # Read the README.md file and show the contents
+    intro_markdown = read_markdown_file("README.md")
+    st.markdown(intro_markdown, unsafe_allow_html=True)
 
-        Hi! this is my first Streamlit app.
-        """
-    )
+
+def read_markdown_file(markdown_file):
+    return Path(markdown_file).read_text()
 
 
 if __name__ == "__main__":
