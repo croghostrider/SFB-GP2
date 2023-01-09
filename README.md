@@ -5,6 +5,7 @@ Hi! this is my first Streamlit app.
 # Used tools
 
 - GitKraken
+- venv
 - pre-commit
 - pyupgrade
 - black
